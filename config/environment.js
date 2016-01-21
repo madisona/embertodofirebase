@@ -4,9 +4,19 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'todo-mvc',
     environment: environment,
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'default-src': "'none'",
+      'script-src': "'self'",
+      'font-src': "'self' data: use.typekit.net",
+      'img-src': "'self' data:",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net"
+    },
+    firebase: 'https://boiling-inferno-2112.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
+      ENABLE_DS_FILTER: true,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
